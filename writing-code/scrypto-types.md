@@ -1,0 +1,2 @@
+# Scrypto Types
+
