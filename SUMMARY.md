@@ -3,8 +3,9 @@
 ## Getting Started
 
 * [Installation](README.md)
+* [Scrypto Concepts](getting-started/scrypto-concepts.md)
 * [Hello World !](getting-started/hello-world.md)
-* [rev2 CLI](getting-started/rev2-cli.md)
+* [resim CLI](getting-started/resim-cli.md)
 
 ## Writing Code
 
