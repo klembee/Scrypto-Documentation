@@ -5,7 +5,8 @@
 * [Installation](README.md)
 * [Scrypto Concepts](getting-started/scrypto-concepts.md)
 * [Hello World !](getting-started/hello-world.md)
-* [resim CLI](getting-started/resim-cli.md)
+* [Deploying HelloWorld](getting-started/deploying-helloworld.md)
+* [More on the CLI](getting-started/more-on-the-cli.md)
 
 ## Writing Code
 

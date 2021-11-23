@@ -3,13 +3,13 @@
 To get started quickly, you can generate a new project with the following command
 
 ```
-scrypto new-package <package_name>
+scrypto new-package helloworld
 ```
 
 Now, let's look at the generate directory structure:
 
 ```
-- [package_name]
+- helloworld
     - src
         - lib.rs
     - tests
@@ -109,4 +109,4 @@ We created a method named `free_token` that returns a `Bucket` containing a sing
 
 ### Trying the blueprint
 
-In the next section, we will show how you can use the Scrypto CLI `resim` to instantiate a component and call its methods !
+In the next section, we will show how you can use the Scrypto CLI `resim` to instantiate this component and call its methods !
