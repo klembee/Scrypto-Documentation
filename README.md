@@ -1,45 +1,40 @@
-# Installation
+# Introduction
 
-### Install Rust
+### About this Tutorial
 
-#### Windows
+Everything about this brief tutorial is subject to change as the Scrypto is evolving quickly at the time of this writing. We purposely only cover the basics so that we can get this material in the hands of interested programmers as quickly as possible.
 
-1. Download and install [`rustup-init.exe`](https://win.rustup.rs/x86\_64)
-2. Install "Desktop development with C++" with [Build Tools for Visual Studio 2019](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools\&rel=16)
-3. Start a new PowerShell to enable cargo
+### Getting Started
 
-#### Linux and
+* [Installation](<README (1).md>)
+* [Scrypto Concepts](getting-started/scrypto-concepts.md)
+* [Hello World !](getting-started/hello-world.md)
+* [Deploying HelloWorld](getting-started/deploying-helloworld.md)
+* [More on the CLI](getting-started/more-on-the-cli.md)
 
-1.  Install rust:
+### Writing Code
 
-    ```
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    ```
-2.  Enable cargo in the current shell:
+* [Scrypto Types](writing-code/scrypto-types.md)
+* [Creating Tokens](writing-code/creating-tokens.md)
+* [Building a Gumball Machine](writing-code/building-a-gumball-machine.md)
+* [Security Through Badges](writing-code/security-through-badges.md)
 
-    ```
-    source $HOME/.cargo/env
-    ```
+### Next Steps
 
-### Setup Scrypto simulator
+#### Join the Community
 
-1.  Add WebAssembly target
+#### Join a Project
 
-    ```
-    rustup target add wasm32-unknown-unknown
-    ```
-2.  Install the simulator
+#### Follow and Support the Authors
 
-    ```
-    git clone git@github.com:radix-scrypto/peek-scrypto.git
-    cd peek-scrypto
-    cargo install --path ./simulator
-    ```
+This tutorial is free and we intend to keep it up to date.
 
+Please support the authors via XRD donations.
 
+Rock Howard leads the Radix Programmer's Guild and helps shepherd the free Rust & Scrypto Forum on discord. On the forum he conducts periodic live interactive sessions covering Scrypto programming for Radix and related topics. He is working on two book projects, creates YouTube videos and writes two popular blogs. He lives in Austin, Texas with his wife Beverly and two orange tabby cats.
 
+Rock's Tutorial Tip Jar on Radix:
 
+rdx1qspvz2523hcdfrkkz6kkdd7nej6pgud48qf449wjd4l0dgrzv6tjstcpr9dup
 
-###
-
-###
+Clements Bisaillon is a Core Member of the Radix Programmer's Guild who loves Radix and Scrypto.
