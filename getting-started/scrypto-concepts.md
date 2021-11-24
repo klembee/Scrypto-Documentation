@@ -8,6 +8,8 @@ In the realm of programming languages Rust is considered medium level in complex
 
 ## Asset Oriented Programming
 
+Asset-oriented programming incorporates assets as first class types in the language. This allows the compiler and runtime to reason about asset handling using specially designed safety checks that protect programmers and end users alike. The resulting code is generally atomic and can entirely prevent certain types of bugs related to double spending, unauthorized access, misplaced assets, reentrancy and more. Radix claims that Scrypto goes even further in this regards than earlier experimental languages such as 'flint' and 'Cadence'. For instance in Radix the set of all tokens protected by the compiler and runtime extends to the core XDR protocol token. Also access control entities known as badges get the same added protections as well. Accordingly Radix refers to all of these as 'resources' and they all get similar first class treatment in terms of safety and efficacy.
+
 ### Resources
 
 * Tokens
