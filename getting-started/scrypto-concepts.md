@@ -23,10 +23,35 @@ Radix claims that Scrypto goes even further in this regards than earlier experim
 * Bucket
 * Account
 
-## Blueprints, Components and Smart Contracts
+## Blueprints, Components and Packages versus Smart Contracts
+
+Scrypto has a more sophisticated way to deploy logic to the ledger than first generation smart contract protocols. Let's dive in.
+
+### Blueprints
+
+Blueprints are compiled source code that lives on ledger in a form where it is available for anyone to reuse although there may be an author specified royalty involved with doing so.
+Blueprints never have state and so in that sense they are not active. Instead they provide one or more constructor functions that allows others to instantiate them. These constructors may have any number of arguments that can parameterize the operation of the blueprint's code. So while blueprints tend to be are highly specialized in terms of their functionality, they may also be used to support many different use cases depending on exactly how they are instantiated.
+
+### Packages
+
+In some cases blueprints are designed to work closely together with other blueprints and in this case they can deployed together as a package. Deploying them together in this way means that a given blueprint can be sure that some other different blueprint exists and therefore it's code may instantiate them as part of their operations. In addition it is reasonable to presume that deploying blueprints together as a package may save on deployment costs. Like blueprints, packages do not manage state information.
+
+Note that the full details on the many way that blueprints can be manipulated in order to make them work together on your behalf are not yet available.
+
+### Components
+
+To activate a blueprint you instantiate it by calling one of its' constructor functions. When this process completes you get the address of the newly created instance which is called a component. Components manage state and can gather, hold and distribute resources according to the logic provided in its' associated blueprint. Technically components never die however there may be logic within a blueprint that makes a component useless after certain conditions are triggered.
+
+So in Scrypto components are the closest thing to what we think of when we think of a smart contract. However all of the smarts in a component derive from the logic that is defined in the blueprint that gave birth to that component via one of its' constructor functions.
+
+### Versus Smart Contracts
+
+So we can say that Radix has smart contracts but, as we have seen above, the situation is quite different since the package/blueprint/component model can be far more configurable and the alignment between components can be far tighter and safer than smart contracts can ever hope to deliver.
 
 ## Behind the Scenes: The Radix Engine, Radix API and Cerebus
 
+Part of what makes Radix safer than other protocols is due to the design and implementation of the Radix Engine that is running on the ledger. All tokens, badges and other resources are defined by the Radix Engine making their operations faster and more predictable than if they were defined in third party programmer provided smart contracts. The Radix designers decided that all of the assets running on their protocol deserved that extra level of expedited care and concern.
+
 ## Community
 
-Taken as a whole the Radix stack, from the low level protocol to the highest level abstractions, is a lot to digest. No one should expect to master it all by yourself.  It is good that you don't have to since already in these early days of Scrypto devlopment, a healthy internnational community has formed ...
+Taken as a whole the Radix stack, from the low level protocol to the highest level abstractions, is a lot to digest. No one should expect to master it all by yourself.  It is good that you don't have to since already in these early days of Scrypto development, a healthy international community has formed ...
