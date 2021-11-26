@@ -29,6 +29,7 @@ pub fn steal_tokens(&mut self, bucket: BucketRef) {
     
     // Error ! We are trying to take ownership over the BucketRef
     self.secret_vault.put(bucket);
+    
     bucket.drop();
 }
 ```
@@ -37,7 +38,18 @@ You can see that we call `bucket.drop()` at the end of the method. It is require
 
 ### Account
 
+If you have the address of an account, you can instantiate an Account struct like this:
 
+`Account::from(address: Address)`
+
+Here is an example where we deposit a token inside an account:
+
+```rust
+pub fn send_gift(&self, address: Address) {
+    let account = Account::from(address);
+    account.deposit(self.oranges.take(1));
+}
+```
 
 ### Component
 
