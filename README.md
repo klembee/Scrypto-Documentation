@@ -37,12 +37,10 @@ Contact the [Radix Programmer's Guild](https://www.radguild.org).
 
 #### Follow and Support the Authors
 
-This tutorial is free and we intend to keep it up to date.
-
-Please support the authors via XRD donations.
-
-Rock Howard leads the Radix Programmer's Guild and helps shepherd the free [Rust & Scrypto Forum](https://discord.gg/4Kqrgpg88X) on discord. On the forum he conducts periodic live interactive sessions covering Scrypto programming for Radix and related topics. He is working on two book projects, creates YouTube videos and writes two popular blogs. He lives in Austin, Texas with his wife Beverly and two orange tabby cats.
-
-Rock's Tutorial Tip Jar on Radix: rdx1qspvz2523hcdfrkkz6kkdd7nej6pgud48qf449wjd4l0dgrzv6tjstcpr9dup
+Rock Howard leads the Radix Programmer's Guild and helps shepherd the free [Rust & Scrypto Forum](https://discord.gg/4Kqrgpg88X) on discord. On the forum he conducts periodic live interactive sessions covering Scrypto programming for Radix and related topics. He is working on two book projects, creates YouTube videos and writes two popular blogs. He lives in Austin, Texas with his wife Beverly and two orange tabby cats. He is @rockhoward on Twitter.
 
 Clements Bisaillon is a Core Member of the Radix Programmer's Guild who loves Radix and Scrypto.
+
+This tutorial is free and we intend to keep it up to date. Please support the authors via XRD donations.
+
+Tutorial Tip Jar: rdx1qspvz2523hcdfrkkz6kkdd7nej6pgud48qf449wjd4l0dgrzv6tjstcpr9dup
