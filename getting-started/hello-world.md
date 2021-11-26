@@ -25,7 +25,7 @@ Now, let's look at the generate directory structure:
 
 Now open `src/lib.rs`.
 
-```
+```rust
 use scrypto::prelude::*;
 blueprint! { 
     struct Hello { 
@@ -63,7 +63,7 @@ blueprint! {
 
 Everything inside the `blueprint!` section describes your package. Let's go over each sections.
 
-```
+```rust
 struct Hello { 
     // Define what resources and data will be managed by Hello components 
     sample_vault: Vault 
@@ -74,7 +74,7 @@ in the struct is where you define the state of the instantiated components. In t
 
 Next, is the `impl Hello` block. This block contains all the methods and functions that your package and instantiated components will provide. The generated code already contains a function named `new` which allows anyone to instantiate a component from the blueprint.&#x20;
 
-```
+```rust
 pub fn new() -> Component {
     // Create a new token called "HelloToken," with a fixed supply of 1000, and put that supply into a bucket
     let my_bucket: Bucket = ResourceBuilder::new()
@@ -96,7 +96,7 @@ This method acts as a constructor for your components. It is callable on the blu
 
 Now, it wouldn't be really useful if that was all you could do with the blueprint. Let's add a method that you can call on the generated components to receive an `HelloToken:`
 
-```
+```rust
 pub fn free_token(&mut self) -> Bucket {
     info!("My balance is: {} HelloToken. Now giving away a token!", self.sample_vault.amount());
     // If the semi-colon is omitted on the last line, the last value seen is automatically returned
