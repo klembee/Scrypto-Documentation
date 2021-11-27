@@ -67,3 +67,76 @@ The type annotation we add on the method "::<()>" specifies the return type of t
 \[Example with multiple return types]
 
 \[Example on how to include code]
+
+#### Import component with an ABI
+
+Calling components like in the previous section is useful when you don't know the package's address at compile time. When you do know the package address, it is easier to use it by importing its Application Binary Interface (ABI). The ABI is a json representation of the package. It describes its functions, methods, arguments, etc... The resim CLI comes with a useful command to export the ABI of any packages easily. No need to manually write the ABI, try it with the HelloWorld package:
+
+```
+> resim export-abi [package_address] Hello
+```
+
+When you have the ABI and the package's address, you can import it inside your component:
+
+```rust
+use scrypto::prelude::*;
+
+// Import a package at the provided address 
+// and with the provided ABI.
+import! {
+    r#"
+    {
+        "package": "[package_address]",
+        "name": "TokenGiver",
+        "functions": [
+            {
+                "name": "new",
+                "inputs": [],
+                "output": {
+                    "type": "Custom",
+                    "name": "scrypto::core::Component",
+                    "generics": []
+                }
+            }
+        ],
+        "methods": [
+            {
+                "name": "free_token",
+                "mutability": "Immutable",
+                "inputs": [],
+                "output": {
+                    "type": "Custom",
+                    "name": "scrypto::resource::Bucket",
+                    "generics": []
+                }
+            }
+        ]
+    }
+    "#
+    }
+
+blueprint! {
+    struct ComponentCaller {
+        vault: Vault,
+        // You can now define variables with the name of the package as its type
+        free_token_component: TokenGiver 
+    }
+
+    impl ComponentCaller {
+        pub fn new() -> Component {
+            Self {
+                vault: Vault::new(RADIX_TOKEN),
+                free_token_component: TokenGiver::new().into() 
+            }
+            .instantiate()
+        }
+
+        pub fn call_get_tokens(&mut self) {
+            // You can now call methods defined in the ABI
+            let bucket = self.free_token_component.free_token();
+            self.vault.put(bucket);
+        }
+    }
+}
+
+```
