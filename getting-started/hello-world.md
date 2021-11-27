@@ -6,7 +6,7 @@ To get started quickly, you can generate a new project with the following comman
 scrypto new-package helloworld
 ```
 
-Now, let's look at the directory structure created by the new-package command:
+Now, let's look at the generate directory structure:
 
 ```
 - helloworld
@@ -19,13 +19,13 @@ Now, let's look at the directory structure created by the new-package command:
 
 `src/lib.rs` is where you will write your package's code
 
-`tests/lib.rs` is where you will write the unit tests for your package
+`tests/lib.rs` is where you will write the tests for your package
 
 `Cargo.toml` is your package's manifest. It allows you to set a name, a version and specify the Scrypto dependencies
 
 Now open `src/lib.rs`.
 
-```
+```rust
 use scrypto::prelude::*;
 blueprint! { 
     struct Hello { 
@@ -61,22 +61,20 @@ blueprint! {
 }
 ```
 
-Everything inside this file defines your package. Typically you will find a single `blueprint!` section in the package but it is possible to include more blueprints and/or more files from this same directory which can also contain blueprints to be included in this package.
+Everything inside the `blueprint!` section describes your package. Let's go over each sections.
 
-The `blueprint!` macro defines a code template that can be published on the ledger. It has two sections: one for data and one for functions and methods.
-
-```
+```rust
 struct Hello { 
     // Define what resources and data will be managed by Hello components 
     sample_vault: Vault 
 }
 ```
 
-The `struct` section defines the state information for the components that are instantiated from this blueprint. In this case the components will have a vault named `sample_vault` where they will be able to store tokens on the ledger.
+in the struct is where you define the state of the instantiated components. In this case the components will have a vault named `sample_vault` where they will be able to store tokens.
 
-Next, is the `impl` section where all of the functions and methods for the instantiated components are defined. Notice that the first function named `new` returns a `Component`. This identifies the function as a constructor which, when called, instantiates and returns a new component that operates according to this blueprint.
+Next, is the `impl Hello` block. This block contains all the methods and functions that your package and instantiated components will provide. The generated code already contains a function named `new` which allows anyone to instantiate a component from the blueprint.&#x20;
 
-```
+```rust
 pub fn new() -> Component {
     // Create a new token called "HelloToken," with a fixed supply of 1000, and put that supply into a bucket
     let my_bucket: Bucket = ResourceBuilder::new()
@@ -92,11 +90,13 @@ pub fn new() -> Component {
 }
 ```
 
-The `new` function first defines a new type of token named "HelloToken" and then creates a fixed supply of 1000 tokens of these tokens which are all returned in a Bucket name `my_bucket`. Then it instantiates the component using the syntax shown and, within the body of `Self` specifying all of the initial values of the elements listed above in the `struct`. In this case, there is only one, `sample_vault`, which it creates using the tokens inside `my_bucket`.&#x20;
+The `new` method on this blueprint is quite simple. It first creates a new token name "HelloToken" with a fixed supply of 1000 then it instantiates a component from the blueprint by specifying what the `sample_vault` variable should contain. In that case, it takes the tokens inside my\_bucket (the newly created HelloTokens).
 
-Instantiating a component from a blueprint is just the beginning. For a component to be useful it also needs to define additional methods that you can be called to perform various tasks.&#x20;
+This method acts as a constructor for your components. It is callable on the blueprint itself and generates a new component whenever you call it.
 
-```
+Now, it wouldn't be really useful if that was all you could do with the blueprint. Let's add a method that you can call on the generated components to receive an `HelloToken:`
+
+```rust
 pub fn free_token(&mut self) -> Bucket {
     info!("My balance is: {} HelloToken. Now giving away a token!", self.sample_vault.amount());
     // If the semi-colon is omitted on the last line, the last value seen is automatically returned
@@ -105,8 +105,8 @@ pub fn free_token(&mut self) -> Bucket {
 }
 ```
 
-Here we  see a method named `free_token` that returns a `Bucket` containing a single token from the `sample_vault`. As you can see, the method contains a single parameter `&mut self` that is used to get access to the state variables, in this case `sample_vault`. Because this is a method, you can only call it on instantiated components.
+We created a method named `free_token` that returns a `Bucket` containing a single token from the `sample_vault`. As you can see, the method contains a single parameter `&mut self`. This is used to get access to the state variables, in this case `sample_vault`. Because this is a method ( not a function), you can only call it on instantiated components, not the blueprint itself.
 
 ### Trying the blueprint
 
-In the next section, we will show how you can use the Scrypto CLI `resim` to instantiate this blueprint to make a component and then call its methods.
+In the next section, we will show how you can use the Scrypto CLI `resim` to instantiate this component and call its methods !
