@@ -17,15 +17,15 @@ Now, let's look at the directory structure created by the new-package command:
     - Cargo.toml
 ```
 
-`src/lib.rs` is where you will write your blueprint's code
+`src/lib.rs` is where you will write your package's code
 
-`tests/lib.rs` is where you will write the unit tests for your blueprint
+`tests/lib.rs` is where you will write the unit tests for your package
 
 `Cargo.toml` is your package's manifest. It allows you to set a name, a version and specify the Scrypto dependencies
 
 Now open `src/lib.rs`.
 
-```rust
+```
 use scrypto::prelude::*;
 blueprint! { 
     struct Hello { 
@@ -65,7 +65,7 @@ Everything inside this file defines your package. Typically you will find a sing
 
 The `blueprint!` macro defines a code template that can be published on the ledger. It has two sections: one for data and one for functions and methods.
 
-```rust
+```
 struct Hello { 
     // Define what resources and data will be managed by Hello components 
     sample_vault: Vault 
@@ -76,7 +76,7 @@ The `struct` section defines the state information for the components that are i
 
 Next, is the `impl` section where all of the functions and methods for the instantiated components are defined. Notice that the first function named `new` returns a `Component`. This identifies the function as a constructor which, when called, instantiates and returns a new component that operates according to this blueprint.
 
-```rust
+```
 pub fn new() -> Component {
     // Create a new token called "HelloToken," with a fixed supply of 1000, and put that supply into a bucket
     let my_bucket: Bucket = ResourceBuilder::new()
@@ -92,11 +92,11 @@ pub fn new() -> Component {
 }
 ```
 
-The `new` function first defines a new type of token named "HelloToken" and then creates a fixed supply of 1000 tokens of these tokens which are all returned in a Bucket name `my_bucket`. Then it instantiates the component using the syntax shown and, within the body of `Self` specifying all of the initial values of the elements listed above in the `struct`. In this case, there is only one, `sample_vault`, which it creates using the tokens inside `my_bucket`.
+The `new` function first defines a new type of token named "HelloToken" and then creates a fixed supply of 1000 tokens of these tokens which are all returned in a Bucket name `my_bucket`. Then it instantiates the component using the syntax shown and, within the body of `Self` specifying all of the initial values of the elements listed above in the `struct`. In this case, there is only one, `sample_vault`, which it creates using the tokens inside `my_bucket`.&#x20;
 
-Instantiating a component from a blueprint is just the beginning. For a component to be useful it also needs to define additional methods that you can be called to perform various tasks.
+Instantiating a component from a blueprint is just the beginning. For a component to be useful it also needs to define additional methods that you can be called to perform various tasks.&#x20;
 
-```rust
+```
 pub fn free_token(&mut self) -> Bucket {
     info!("My balance is: {} HelloToken. Now giving away a token!", self.sample_vault.amount());
     // If the semi-colon is omitted on the last line, the last value seen is automatically returned
@@ -105,7 +105,7 @@ pub fn free_token(&mut self) -> Bucket {
 }
 ```
 
-Here we see a method named `free_token` that returns a `Bucket` containing a single token from the `sample_vault`. As you can see, the method contains a single parameter `&mut self` that is used to get access to the state variables, in this case `sample_vault`. Because this is a method (it has a reference to self), you can only call it on instantiated components.
+Here we  see a method named `free_token` that returns a `Bucket` containing a single token from the `sample_vault`. As you can see, the method contains a single parameter `&mut self` that is used to get access to the state variables, in this case `sample_vault`. Because this is a method, you can only call it on instantiated components.
 
 ### Trying the blueprint
 

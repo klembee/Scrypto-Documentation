@@ -42,7 +42,9 @@ blueprint! {
         }
 ```
 
-(Describe the header, struct and constructor here.)
+The `GumballMachine` blueprint looks very similar to the `Hello` blueprint that we just reviewed. This time we have 2 vaults: one for the gumballs that will be sold and the other for the XRD tokens that we will collect from those who purchase gumballs. The `price` in XRD for each Gumball is also maintained as a variable so that it can be changed if we provide code to do that. Notice that `price` is a `Decimal`. That is the way to save and use numbers that have a fractional component in Scrypto. (Floats are not supported on the ledger and so you can only use them in passing. It is usually best not to use them at all.)
+
+The constructor also looks similar to what we say in `Hello`. One difference is that the `new` constructor takes an argument named `price` that will be saved into the `struct`. The other new thing is the way that the `collected_xrd` Vault is created. The expression `Vault::new(RADIX_TOKEN)`  is the way to create an empty Vault that will hold Radix tokens. Finally the `gumballs` are set up in the same way that we saw with the Hello tokens.
 
 Now let's look at the rest of the code:
 
