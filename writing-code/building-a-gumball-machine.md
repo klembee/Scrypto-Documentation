@@ -72,6 +72,10 @@ any)
 }
 ```
 
-(Discuss this code and then have the user publish it and try it out using the CLI.)
+There are just two methods defined.  The`get_price` method returns the price which is held as part of the component's state. If by now you are itching to do some coding, try adding another method named `set_price` that can be called to change the gumball price.
+
+(FIXME: Now we look at the `buy_gumball` method which is the heart of the entire blueprint. This one takes a payment Bucket as input ... puts our share of the bucket into collected\_xrd ... returns a tuple with 2 items: the gumball and the payment bucket which may hold change from the transaction.)
+
+(FIXME: Running the gumball machine.)
 
 Now that we understand how to process payments and return the change with Scrypto, let's try to build something more challenging. In the next section we will change this Gumball Machine into a simple Candy Store.

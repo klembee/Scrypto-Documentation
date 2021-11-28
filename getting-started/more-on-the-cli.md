@@ -53,8 +53,22 @@ Make sure to run this command while the default account is the one that owns the
 
 Resim comes with other useful commands that will help you debug and test your components.
 
-To set the current epoch, use: `resim set-current-epoch [epoch_number]`.
+To show information about an account, component, package or token definition, use: `resim show [an_address]`
+
+To set the current epoch, use: `resim set-current-epoch [epoch_number]`
 
 To find the current epoch and the default account use `resim show-configs`
 
 To list all packages, components and resource definitions: `resim show-ledger`
+
+### Shortcuts
+
+You can combine the build and deploy process into one step as follows:
+
+`resim publish .`
+
+If you just changed some code and want to republish using the same package address:
+
+`resim publish . --address $package`
+
+where `$package` is the address that was generated the last time that you published or deployed. Note that if you changed your blueprint struct since the last time that you published this package, then this shortcut will fail.
