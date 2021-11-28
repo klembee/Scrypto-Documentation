@@ -1,26 +1,12 @@
 # Scrypto Concepts
 
+Here is some orientation material for Scrypto programming. If you are super eager to start coding then you may skip this section for now. Just understand that Scrypto probably won't make a lot of sense without an appreciation of these concepts.&#x20;
+
 ## Rust
 
-Scrypto and Rust are joined at the hip. You can't become a Scrypto programmer without learning a good bit about Rust in the process. Fortunately there is a lot of good training material for Rust. To save you time, this tutorial will point out which parts of Rust you need to understand. The rest you can pick up on an as-needed basis.
+Scrypto and Rust are joined at the hip. You can't become a Scrypto programmer without learning a good bit about Rust in the process. Fortunately there is a lot of good training material for Rust. To save you time, this tutorial includes an appendix that points out which parts of Rust you need to understand. The rest you can pick up on an as-needed basis.
 
 In the realm of programming languages Rust is considered medium level in complexity. However most of the advanced aspects of Rust do not come into play when coding with Scrypto. Therefore beginning programmers can start with Scrypto and expect to see real results from their efforts. Having said that, truly mastering Scrypto does take you deep into the Rust rabbit hole and so don't expect complete mastery to come about quickly.
-
-## Asset Oriented Programming
-
-Asset-oriented programming incorporates assets as first class types in the language. This allows the compiler and runtime to reason about asset handling using specially designed safety checks that protect programmers and end users alike. The resulting code is generally atomic and can entirely prevent certain types of bugs related to double spending, unauthorized access, misplaced assets, reentrancy and more.
-
-Radix claims that Scrypto goes even further in this regards than earlier experimental languages such as 'flint' and 'Cadence'. For instance, in Radix the set of all tokens protected by the compiler and runtime extends to the core XDR protocol token as well. In addition there are access control entities known as badges that get the same added protections as tokens. Accordingly Radix refers to tokens, badges and similarly handled entities as 'resources' and they all get similar first class treatment in terms of safety and efficacy.
-
-### Resources and Resource Holders
-
-The early release of Scrypto implements tokens and badges. NFTs should also be supported either in the Alexandria release or soon thereafter. We will discuss the details about creating and managing these resources later in this tutorial, but here is the overriding rule: **All resources must be held in a resource holder of some kind at all times!**
-
-A Resource Holder is a container for resources. The Bucket is the workhorse holder. You pass resources around in buckets and manipulate their contents by moving them between buckets and vaults. However buckets are temporary. They must be empty and/or dropped by the end of a given public function or method.
-
-If you need to hold resources more permanently within a component, you must use a Vault. For that reason you will see Vaults in blueprint structs, but never Buckets.
-
-In addition there is Account but it is not used often in blueprints. An Account is part of a wallet or other resource collector that is not controlled by a component. Some of the details about interacting with and defining Accounts are not yet settled and so their importance for day to day Scrypto development is not well understood yet. For now just be aware that they exist.
 
 ## Blueprints, Components and Packages versus Smart Contracts
 
@@ -50,6 +36,24 @@ So we can say that Radix has smart contracts but, as we have seen above, the sit
 
 Part of what makes Radix safer than other protocols is due to the design and implementation of the Radix Engine that is running on the ledger. All tokens, badges and other resources are defined by the Radix Engine making their operations faster and more predictable than if they were defined in third party programmer provided smart contracts. The Radix designers decided that all of the assets running on their protocol deserved that extra level of expedited care and concern.
 
+(FIXME: Add a bit about scaling and atomic composability.)
+
+## Asset Oriented Programming
+
+Asset-oriented programming incorporates assets as first class types in the language. This allows the compiler and runtime to reason about asset handling using specially designed safety checks that protect programmers and end users alike. The resulting code is generally atomic and can entirely prevent certain types of bugs related to double spending, unauthorized access, misplaced assets, reentrancy and more.
+
+Radix claims that Scrypto goes even further in this regards than earlier experimental languages such as 'flint' and 'Cadence'. For instance, in Radix the set of all tokens protected by the compiler and runtime extends to the core XDR protocol token as well. In addition there are access control entities known as badges that get the same added protections as tokens. Accordingly Radix refers to tokens, badges and similarly handled entities as 'resources' and they all get similar first class treatment in terms of safety and efficacy.
+
+### Resources and Resource Holders
+
+The early release of Scrypto implements tokens and badges. NFTs should also be supported either in the Alexandria release or soon thereafter. We will discuss the details about creating and managing these resources later in this tutorial, but here is the overriding rule: **All resources must be held in a resource holder of some kind at all times!**
+
+A Resource Holder is a container for resources. The Bucket is the workhorse holder. You pass resources around in buckets and manipulate their contents by moving them between buckets and vaults. However buckets are temporary. They must be empty and/or dropped by the end of a given public function or method.
+
+If you need to hold resources more permanently within a component, you must use a Vault. For that reason you will see Vaults in blueprint structs, but never Buckets.
+
+In addition there is Account but it is not used often in blueprints. An Account is part of a wallet or other resource collector that is not controlled by a component. Some of the details about interacting with and defining Accounts are not yet settled and so their importance for day to day Scrypto development is not well understood yet. For now just be aware that they exist.
+
 ## Community
 
-Taken as a whole the Radix stack, from the low level protocol to the highest level abstractions, is a lot to digest. No one should expect to master it all by yourself. It is good that you don't have to since already in these early days of Scrypto development, a healthy international community has formed ...
+Taken as a whole the Radix stack, from the low level protocol to the highest level abstractions, is a lot to digest. No one should expect to master it all by yourself. It is good that you don't have to since already in these early days of Scrypto development, a healthy international community has formed ... (FIXME - complete this section)
