@@ -101,17 +101,14 @@ Because we saved the minter badge in one of the component's vault, we are able t
 
 ```rust
 pub fn burn_badge(&mut self, badge_to_burn: Bucket) {
-    // Take the badge out of the vault
-    let bucket = self.minter_badge.take(1);
+    // Take the minter badge out of the vault
+    let badge_bucket = self.minter_badge.take(1);
     
     // Burn the provided badge
-    badge_to_burn.burn(bucket.borrow());
-    
-    // Let's burn 100 RCTM
-    self.token_vault.take(100).burn(bucket.borrow());
+    badge_to_burn.burn(badge_bucket.borrow());
     
     // Put the badge back into its vault
-    self.minter_badge.put(bucket);
+    self.minter_badge.put(badge_bucket);
 }
 
 pub fn mint_tokens(&mut self) -> Bucket {
