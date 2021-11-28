@@ -45,11 +45,3 @@ Clements Bisaillon is a Core Member of the Radix Programmer's Guild who loves Ra
 This tutorial is free and we intend to keep it up to date. Please support the authors via XRD donations.
 
 Tutorial Tip Jar: rdx1qspvz2523hcdfrkkz6kkdd7nej6pgud48qf449wjd4l0dgrzv6tjstcpr9dup
-
-### Appendices
-
-#### Appendix 1: Rust Basics for Scrypto Devs
-
-#### Appendix 2: Scrypto Resources
-
-#### Appendix 3: Radix Developer's Community

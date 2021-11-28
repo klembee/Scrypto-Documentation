@@ -14,15 +14,6 @@
 * [Scrypto Types](writing-code/scrypto-types.md)
 * [Creating Tokens](writing-code/creating-tokens.md)
 * [A Gumball Machine](writing-code/building-a-gumball-machine.md)
-* [Building a Candy Store](writing-code/building-a-candy-store.md)
 * [Security Through Badges](writing-code/security-through-badges.md)
 
 ## Follow and Support the Authors
-
-## Appendices
-
-***
-
-* [Rust Basics for Scrypto Devs](rust-basics-for-scrypto-devs.md)
-* [Scrypto Resources](scrypto-resources.md)
-* [Radix Developers Community](radix-developers-community.md)
