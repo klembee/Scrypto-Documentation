@@ -4,7 +4,7 @@ Here is some orientation material for Scrypto programming. If you are super eage
 
 ## Rust
 
-Scrypto and Rust are joined at the hip. You can't become a Scrypto programmer without learning a good bit about Rust in the process. Fortunately there is a lot of good training material for Rust. To save you time, this tutorial includes an appendix that points out which parts of Rust you need to understand. The rest you can pick up on an as-needed basis.
+Scrypto and Rust are joined at the hip. You can't become a Scrypto programmer without learning a good bit about Rust in the process. Fortunately there is a lot of good training material for Rust. To save you time, this tutorial includes an [appendix](../appendix/learning-rust.md) that points out which parts of Rust you need to understand. The rest you can pick up on an as-needed basis.
 
 In the realm of programming languages Rust is considered medium level in complexity. However most of the advanced aspects of Rust do not come into play when coding with Scrypto. Therefore beginning programmers can start with Scrypto and expect to see real results from their efforts. Having said that, truly mastering Scrypto does take you deep into the Rust rabbit hole and so don't expect complete mastery to come about quickly.
 

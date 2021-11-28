@@ -16,4 +16,8 @@
 * [A Gumball Machine](writing-code/building-a-gumball-machine.md)
 * [Security Through Badges](writing-code/security-through-badges.md)
 
-## Follow and Support the Authors
+## Appendix
+
+* [Learning Rust](appendix/learning-rust.md)
+* [Community Tools](appendix/community-tools.md)
+* [Other Resources](appendix/other-resources.md)
