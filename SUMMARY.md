@@ -18,3 +18,12 @@
 * [Security Through Badges](writing-code/security-through-badges.md)
 
 ## Follow and Support the Authors
+
+## Appendices
+
+* [Rust Basics for Scrypto Devs](appendices/rust-basics-for-scrypto-devs.md)
+
+***
+
+* [Scrypto Resources](scrypto-resources.md)
+* [Radix Developers Community](radix-developers-community.md)
