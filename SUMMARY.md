@@ -21,9 +21,8 @@
 
 ## Appendices
 
-* [Rust Basics for Scrypto Devs](appendices/rust-basics-for-scrypto-devs.md)
-
 ***
 
+* [Rust Basics for Scrypto Devs](rust-basics-for-scrypto-devs.md)
 * [Scrypto Resources](scrypto-resources.md)
 * [Radix Developers Community](radix-developers-community.md)
