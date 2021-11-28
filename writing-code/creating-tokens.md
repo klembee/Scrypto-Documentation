@@ -4,7 +4,7 @@ Just like with resim, you can create tokens and badges inside your components. Y
 
 ### Fixed supply tokens and badges
 
-To create tokens and badges, you will use the `ResourceBuilder` utility. It allows you to specify metadata on the tokens and specify the supply. When creating tokens and badges of fixed supply, a bucket is returned containing the created resources.&#x20;
+To create tokens and badges, you will use the `ResourceBuilder` utility. It allows you to specify metadata on the tokens and specify the supply. When creating tokens and badges of fixed supply, a bucket is returned containing the created resources.
 
 Here is an example of a component creating an access badge and a token. The tokens are stored in a vault of the component and the badge is returned to the caller.
 
@@ -44,7 +44,6 @@ blueprint! {
         }
     }
 }
-
 ```
 
 ### Mutable supply tokens and badges
@@ -94,15 +93,14 @@ blueprint! {
         }
     }
 }
-
 ```
 
-Notice that we do `minter_badge.borrow()` when calling `mint`. That's because the mint method expect a `BucketRef` and not a `Bucket`. `borrow()` transforms the bucket into a BucketRef.&#x20;
+Notice that we do `minter_badge.borrow()` when calling `mint`. That's because the mint method expect a `BucketRef` and not a `Bucket`. `borrow()` transforms the bucket into a BucketRef.
 
 Because we saved the minter badge in one of the component's vault, we are able to mint and burn the resources in another method:
 
 ```rust
-pub fn change_supply(&mut self, badge_to_burn: Bucket) {
+pub fn burn_badge(&mut self, badge_to_burn: Bucket) {
     // Take the badge out of the vault
     let bucket = self.minter_badge.take(1);
     
@@ -115,19 +113,37 @@ pub fn change_supply(&mut self, badge_to_burn: Bucket) {
     // Put the badge back into its vault
     self.minter_badge.put(bucket);
 }
+
+pub fn mint_tokens(&mut self) -> Bucket {
+    // Take the badge out of the vault
+    let badge_bucket = self.minter_badge.take(1);
+    
+    // Let's mint 100 RCTM
+    let bucket = self.token_vault.resource_def().mint(100, badge_bucket.borrow());
+    
+    // Put the badge back into its vault
+    self.minter_badge.put(badge_bucket);
+    
+    // Return the minted tokens
+    bucket
+}
 ```
 
 Because badges are used a lot, it can become annoying to always take the badge from the vault and having to put it back at the end. That's why the Radix team added the `authorize` method on vaults:
 
 ```rust
-pub fn change_supply(&mut self, badge_to_burn: Bucket) {
+pub fn burn_badge(&mut self, badge_to_burn: Bucket) {
     self.minter_badge.authorize(|badge| {
         badge_to_burn.burn(badge);
-        // todo: error here: use of moved resource: badge
-        self.token_vault.take(100).burn(badge);
     });
+}
+
+pub fn mint_tokens(&mut self) -> Bucket {
+    self.minter_badge.authorize(|badge| {
+        self.token_vault.resource_def().mint(100, badge)
+    })
+    // Notice, there is no semicolon. The created bucket will be returned.
 }
 ```
 
 Much cleaner don't you think ?
-
