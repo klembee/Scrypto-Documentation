@@ -12,16 +12,15 @@ Asset-oriented programming incorporates assets as first class types in the langu
 
 Radix claims that Scrypto goes even further in this regards than earlier experimental languages such as 'flint' and 'Cadence'. For instance, in Radix the set of all tokens protected by the compiler and runtime extends to the core XDR protocol token as well. In addition there are access control entities known as badges that get the same added protections as tokens. Accordingly Radix refers to tokens, badges and similarly handled entities as 'resources' and they all get similar first class treatment in terms of safety and efficacy.
 
-### Resources
+### Resources and Resource Holders
 
-* Tokens
-* Badges
-* NFTs
+The early release of Scrypto implements tokens and badges. NFTs should also be supported either in the Alexandria release or soon thereafter. We will discuss the details about creating and managing these resources later in this tutorial, but here is the overriding rule: **All resources must be held in a resource holder of some kind at all times!**
 
-### Resource Holders
-* Vault
-* Bucket
-* Account
+A Resource Holder is a container for resources. The Bucket is the workhorse holder. You pass resources around in buckets and manipulate their contents by moving them between buckets and vaults. However buckets are temporary. They must be empty and/or dropped by the end of a given public function or method.
+
+If you need to hold resources more permanently within a component, you must use a Vault. For that reason you will see Vaults in blueprint structs, but never Buckets.
+
+In addition there is Account but it is not used often in blueprints. An Account is part of a wallet or other resource collector that is not controlled by a component. Some of the details about interacting with and defining Accounts are not yet settled and so their importance for day to day Scrypto development is not well understood yet. For now just be aware that they exist.
 
 ## Blueprints, Components and Packages versus Smart Contracts
 
@@ -29,8 +28,7 @@ Scrypto has a more sophisticated way to deploy logic to the ledger than first ge
 
 ### Blueprints
 
-Blueprints are compiled source code that lives on ledger in a form where it is available for anyone to reuse although there may be an author specified royalty involved with doing so.
-Blueprints never have state and so in that sense they are not active. Instead they provide one or more constructor functions that allows others to instantiate them. These constructors may have any number of arguments that can parameterize the operation of the blueprint's code. So while blueprints tend to be are highly specialized in terms of their functionality, they may also be used to support many different use cases depending on exactly how they are instantiated.
+Blueprints are compiled source code that lives on ledger in a form where it is available for anyone to reuse although there may be an author specified royalty involved with doing so. Blueprints never have state and so in that sense they are not active. Instead they provide one or more constructor functions that allows others to instantiate them. These constructors may have any number of arguments that can parameterize the operation of the blueprint's code. So while blueprints tend to be are highly specialized in terms of their functionality, they may also be used to support many different use cases depending on exactly how they are instantiated.
 
 ### Packages
 
@@ -54,4 +52,4 @@ Part of what makes Radix safer than other protocols is due to the design and imp
 
 ## Community
 
-Taken as a whole the Radix stack, from the low level protocol to the highest level abstractions, is a lot to digest. No one should expect to master it all by yourself.  It is good that you don't have to since already in these early days of Scrypto development, a healthy international community has formed ...
+Taken as a whole the Radix stack, from the low level protocol to the highest level abstractions, is a lot to digest. No one should expect to master it all by yourself. It is good that you don't have to since already in these early days of Scrypto development, a healthy international community has formed ...
