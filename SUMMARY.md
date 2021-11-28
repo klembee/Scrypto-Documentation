@@ -3,7 +3,7 @@
 ## Getting Started
 
 * [Introduction](README.md)
-* [Installation](<README (1).md>)
+* [Installation](getting-started/installation.md)
 * [Scrypto Concepts](getting-started/scrypto-concepts.md)
 * [Hello World !](getting-started/hello-world.md)
 * [Deploying HelloWorld](getting-started/deploying-helloworld.md)

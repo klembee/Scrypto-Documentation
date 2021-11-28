@@ -6,7 +6,7 @@ Everything about this brief tutorial is subject to change as the Scrypto is evol
 
 ### Getting Started
 
-* [Installation](<README (1).md>)
+* [Installation](broken-reference)
 * [Scrypto Concepts](getting-started/scrypto-concepts.md)
 * [Hello World !](getting-started/hello-world.md)
 * [Deploying HelloWorld](getting-started/deploying-helloworld.md)
@@ -19,6 +19,12 @@ Everything about this brief tutorial is subject to change as the Scrypto is evol
 * [A Gumball Machine](writing-code/building-a-gumball-machine.md)
 * Building a Candy Store
 * [Secure the Store with Badges](writing-code/security-through-badges.md)
+
+### Appendix
+
+* [Learning Rust](appendix/learning-rust.md)
+* [Community Tools](appendix/community-tools.md)
+* [Other Resources](appendix/other-resources.md)
 
 ### Next Steps
 
