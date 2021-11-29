@@ -1,38 +1,44 @@
 # Security Through Badges
 
-For this example we will add the simplest possible security model using a store owner's badge. With this badge the candy store owner will be able to stock and restock the candy store and also claim the collected\_xrd.
+For this example we will add the simplest possible security model using a store owner's badge. With this badge the candy store owner will be able to stock and restock the candy store and also claim the `collected_xrd`.
 
-One obvious way to set this up is to have the creator of the component also be considered to be the owner of the store and therefore get a store owner's badge.
+One obvious way to set this up is to have the creator of the component also be considered to be the owner of the store and therefore give them a store owner's badge.
 
 #### Creating the Badge
 
 First let's create the badge by adding this to the constructor:
 
-```
-    let owners_badge = ResourceBuilder::new()
-            .metadata("name", "Owner's Badge")
-            .new_badge_fixed(1);
+```rust
+let owners_badge = ResourceBuilder::new()
+        .metadata("name", "Owner's Badge")
+        .new_badge_fixed(1);
 ```
 
 Also in the Candy Store's struct let's save the badge's resource definition ...
 
-```
-    owners_badge: ResourceDef,
+```rust
+owners_badge: ResourceDef,
 ```
 
 ... and set that up when creating the component like this:
 
-```
+```rust
+Self {
+    candy_vaults: HashMap::new(),
+    collected_xrd: Vault::new(RADIX_TOKEN),
+    prices: HashMap::new(),
     owners_badge: owners_badge.resource_def();
+}
+.instantiate()
 ```
 
 #### Delivering the Badge
 
-We need to return this badge in the constructor along with the component and that changes the `new()` function's definition and requires a little refactoring.
+We need to change the `new()` function to return the created badge along with the component.
 
 Here is the completely revised struct and new().
 
-```
+```rust
 struct CandyStore {
     candy_vaults: HashMap<Address, Vault>,
     collected_xrd: Vault,
@@ -41,11 +47,13 @@ struct CandyStore {
 }
 
 impl CandyStore {
-    // given a price in XRD, creates a ready-to-use gumball machine
+
     pub fn new() -> (Bucket, Component) {
+        // Create the badge
         let badge_bucket = ResourceBuilder::new()
             .metadata("name", "Stpre Owner's Badge")
             .new_badge_fixed(1);
+
         let component = Self {
             candy_vaults: HashMap::new(),
             collected_xrd: Vault::new(RADIX_TOKEN),
@@ -53,42 +61,53 @@ impl CandyStore {
             owners_badge: badge_bucket.resource_def(),
         }
         .instantiate();
+
+        // Return the badge and the component
         (badge_bucket, component)
     }
 ```
 
-#### Securing the stock\_candy Method
+#### Securing the stock_candy Method
 
-Now let's update the stock\_candy method to require the owner's badge. You do this by adding this macro on the line before the method is defined:
+Now let's update the `stock_candy` method to require the owner's badge when calling it. You do this by adding this macro on the line before the method's definition:
 
+```rust
+#[auth(owners_badge)]
+pub fn stock_candy(&mut self, candy: Bucket, new_price: Decimal) {
 ```
-        #[auth(owners_badge)]
-```
 
-This macro does all of the work to protect this function. The caller must include their badge as an additional last argument which is sent up in a `BucketRef` (which, in `resim`, is specified in the same manner as a `Bucket`.) Try it with both 1,$badge and 0,$badge and you will see that having the badge address is not sufficient. You actually have to include the badge to pass muster with the auth macro.
+This macro does all of the work to protect the method. The caller must include their badge as an additional last argument which is sent up in a `BucketRef` (which, in `resim`, is specified in the same manner as a `Bucket`.) Try it with both `1,[badge_address]` and `0,[badge_address]`. You will see that having the badge address is not sufficient. You actually have to provide a quantity of least one.
 
 #### Claiming the Proceeds
 
-There is just one more thing to do now. Let's add a secure function to claim the collected XRD. While we are at it, let's also track the amount of XRD that has been claimed over the lifetime of the CandyStore. To do this add this to the CandyStore struct:
+There is just one more thing to do now. Let's add a secure method allowing the owner to claim the collected XRD. While we are at it, let's also track the amount of XRD that has been claimed over the lifetime of the CandyStore. To do this add this to the CandyStore struct:
 
-```
-    total_claimed: Decimal,
+```rust
+total_claimed: Decimal,
 ```
 
 and this to the constructor:
 
-```
-    total_claimed: 0.0.into(),
+```rust
+let component = Self {
+    candy_vaults: HashMap::new(),
+    collected_xrd: Vault::new(RADIX_TOKEN),
+    prices: HashMap::new(),
+    owners_badge: badge_bucket.resource_def(),
+    // Add this line !
+    total_claimed: 0.into(),
+}
+.instantiate();
 ```
 
-Again we will secure this new `claim` function with the `auth` macro making it a snap to write:
+Again we will secure this new `claim` method with the `auth` macro making it a snap to write:
 
-```
-    #[auth(owners_badge)]
-    pub fn claim (&mut self) -> Bucket {
-        self.total_claimed += self.collected_xrd.amount();
-        self.collected_xrd.take_all()
-    }
+```rust
+#[auth(owners_badge)]
+pub fn claim (&mut self) -> Bucket {
+    self.total_claimed += self.collected_xrd.amount();
+    self.collected_xrd.take_all()
+}
 ```
 
 That's it. The owner can now claim the CandyStore proceeds in a safe manner.
