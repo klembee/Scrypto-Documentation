@@ -8,7 +8,7 @@ description: >-
 
 ### Accounts
 
-The first thing to do is to create an account. You can achieve this with this command: `resim new-account`. This will return the created account's public key and address. If it is the first time that you call this command, this account will be set as the default one when calling functions and methods.
+The first thing to do is to create an account from which you will call the functions and methods. You can achieve this with this command: `resim new-account`. This will return the created account's public key and address. If it is the first time that you call this command, the account will be set as the default one when calling functions and methods.
 
 You can get the resources at a specific account's address with the following command: `resim show [account_address]`:
 
@@ -18,26 +18,25 @@ Resources:
 └─ { amount: 1000000, resource_def: 030000000000000000000000000000000000000000000000000004, name: "Radix", symbol: "XRD"}
 ```
 
-As you can see, when you create an account, it starts with 1 000 000 XRD to make it easier to test.
+As you can see, when you create a new account, it starts with 1 000 000 XRD to make it easier to test.
 
 ### Deploy and test
 
-Now for the interesting part. You will learn how to deploy the "Hello World!" code and call its method.
+Now you will learn how to deploy the "Hello World!" code and call its method.
 
 We first need to build and deploy the blueprint:
 
 ```
 # Inside the helloworld directory
-scrypto build
 resim deploy .
 ```
 
-The deploy command will return the package address. Save it somewhere, you will need it in the next step.
+The deploy command will build the code and deploy it to the ledger. It returns the blueprint's address. Save it somewhere, you will need it in the next step.
 
 Now that the blueprint is on the ledger, we can call its functions. In the HelloWorld blueprint, we specified a function acting as a constructor named `new`. You can call it like this:
 
 ```
-resim call-function [package_address] Hello new
+resim call-function [blueprint_address] Hello new
 ```
 
 This will output a new ResourceDef's address and the instantiated component's address:
