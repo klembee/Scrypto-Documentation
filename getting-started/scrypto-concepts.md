@@ -52,6 +52,10 @@ A Resource Holder is a container for resources. The Bucket is the workhorse hold
 
 If you need to hold resources more permanently within a component, you must use a Vault. For that reason you will see Vaults in blueprint structs, but never Buckets.
 
+If you need to hold resources more permanently within a component, you must use a Vault. For that reason you will see Vaults in blueprint structs, but never Buckets. As we shall see it is possible to do sophisticated things with Vaults such as add or drop them dynamically as needed. Just keep in mind that it will become prohibitively expensive if your component is designed in such a way as to require a huge number of Vaults.
+
+It will pay off well to study all of the available functions and methods for Buckets and Vaults.
+
 FIXME: the following paragraph needs an overhaul per our discussion.
 
 In addition, there is Account but it is not used often in blueprints. An Account is part of a wallet or other resource collector that is not controlled by a component. Some of the details about interacting with and defining Accounts are not yet settled and so their importance for day to day Scrypto development is not well understood yet. For now just be aware that they exist.
