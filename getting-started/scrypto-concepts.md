@@ -50,15 +50,11 @@ The early release of Scrypto implements tokens and badges. NFTs should also be s
 
 A Resource Holder is a container for resources. The Bucket is the workhorse holder. You pass resources around in buckets and manipulate their contents by moving them between buckets and vaults. However buckets are temporary. They must be emptied and/or burned by the end of a given public function or method.
 
-If you need to hold resources more permanently within a component, you must use a Vault. For that reason you will see Vaults in blueprint structs, but never Buckets.
-
 If you need to hold resources more permanently within a component, you must use a Vault. For that reason you will see Vaults in blueprint structs, but never Buckets. As we shall see it is possible to do sophisticated things with Vaults such as add or drop them dynamically as needed. Just keep in mind that it will become prohibitively expensive if your component is designed in such a way as to require a huge number of Vaults.
 
 It will pay off well to study all of the available functions and methods for Buckets and Vaults.
 
-FIXME: the following paragraph needs an overhaul per our discussion.
-
-In addition, there is Account but it is not used often in blueprints. An Account is part of a wallet or other resource collector that is not controlled by a component. Some of the details about interacting with and defining Accounts are not yet settled and so their importance for day to day Scrypto development is not well understood yet. For now just be aware that they exist.
+An Account us a resource holder that models a wallet within the simulator. Some of the details about interacting with and defining Accounts are not yet settled and so their eventual importance for Scrypto development is not well understood yet. We recommend avoiding them if at all possible since they are certainly going to change a lot going forward.
 
 ### In Summary
 
