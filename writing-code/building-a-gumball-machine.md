@@ -74,7 +74,9 @@ any)
 
 There are just two methods defined. The`get_price` method returns the price which is held as part of the component's state. If by now you are itching to do some coding, try adding another method named `set_price` that can be called to change the gumball price.
 
-(FIXME: Now we look at the `buy_gumball` method which is the heart of the entire blueprint. This one takes a payment Bucket as input ... puts our share of the bucket into collected\_xrd ... returns a tuple with 2 items: the gumball and the payment bucket which may hold change from the transaction.)
+Finally we look at the `buy_gumball` method which is the really the heart of the entire blueprint. This one takes a `payment` Bucket as input. This code takes our portion of the tokens from the bucket as dictated by `self.price`.  The caller's change, if any, remains in the `payment` bucket. (Notice that the code makes no effort to know if there is any change. Instead it is just going to return the `payment` bucket to the caller without bothering to check whether or not it is empty.)
+
+The final line of the method designates the two buckets that will be returned to the caller. The first bucket is created by using the `take` method to take a gumball token from the `self.gumballs` vault. The take function returns that token inside a bucket and so that part of the tuple is ready to go. Of course the second part of the tuple is the previously discussed `payment` bucket. This tuple matches the functions stated return pattern designation of `(Bucket, Bucket)` and so this function is complete.
 
 Let's run a quick smoke test using `resim`.
 
@@ -94,4 +96,4 @@ show $account
 // Check that everything adds up.
 ```
 
-Now that we understand how to process payments and return the change with Scrypto, let's try to build something more challenging. In the next section we will change this Gumball Machine into something a bit closer to the real world: a Candy Store that sells multiple changing products.
+Now that we understand how to process payments and return the change with Scrypto, let's try to build something more challenging. In the next section we will change this Gumball Machine into something a bit closer to the real world: a Candy Store that sells a number of different products that can change over time.
