@@ -72,10 +72,26 @@ any)
 }
 ```
 
-There are just two methods defined.  The`get_price` method returns the price which is held as part of the component's state. If by now you are itching to do some coding, try adding another method named `set_price` that can be called to change the gumball price.
+There are just two methods defined. The`get_price` method returns the price which is held as part of the component's state. If by now you are itching to do some coding, try adding another method named `set_price` that can be called to change the gumball price.
 
 (FIXME: Now we look at the `buy_gumball` method which is the heart of the entire blueprint. This one takes a payment Bucket as input ... puts our share of the bucket into collected\_xrd ... returns a tuple with 2 items: the gumball and the payment bucket which may hold change from the transaction.)
 
-(FIXME: Running the gumball machine.)
+Let's run a quick smoke test using `resim`.
 
-Now that we understand how to process payments and return the change with Scrypto, let's try to build something more challenging. In the next section we will change this Gumball Machine into a simple Candy Store.
+```
+resim reset
+resim new-account
+// grab the account and the tokenXRD resourceDef
+resum publish .
+// grab the package
+call-function $package GumballMachine new 0.5
+// grab the tokenGUM and the component
+call-method $component get_price
+// Should return Some(0.5)
+call-method $component buy_gumball 3,$tokenXRD
+show $component
+show $account
+// Check that everything adds up.
+```
+
+Now that we understand how to process payments and return the change with Scrypto, let's try to build something more challenging. In the next section we will change this Gumball Machine into something a bit closer to the real world: a Candy Store that sells multiple changing products.
