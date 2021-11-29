@@ -10,7 +10,7 @@
 2. Install "Desktop development with C++" with [Build Tools for Visual Studio 2019](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools\&rel=16)
 3. Start a new PowerShell to enable cargo
 
-**Linux and**
+**Linux and MacOS**
 
 1.  Install rust:
 
