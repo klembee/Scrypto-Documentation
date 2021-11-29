@@ -33,7 +33,7 @@
 2.  Install the simulator
 
     ```
-    git clone git@github.com:radix-scrypto/peek-scrypto.git
-    cd peek-scrypto
+    git clone https://github.com/radixdlt/radixdlt-scrypto.git
+    cd radixdlt-scrypto
     cargo install --path ./simulator
     ```
