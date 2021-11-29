@@ -34,22 +34,28 @@ Visit the [sign up page](https://developers.radixdlt.com/sign-up) for the RadixD
 
 Join the [RadixDLT discord](https://discord.gg/WkB2USt) and follow the scrypto channel.
 
-Join the [Rust & Scrypto Forum](https://discord.gg/4Kqrgpg88X) on discord which is operated by the [Radix Programmer's Guild](https://www.radguild.org).
+Join the [Rust & Scrypto Forum](https://discord.gg/4Kqrgpg88X) on discord.
 
-Join the [Radix Developer telegram](https://t.me/RadixDevelopers)
+Join the [Radix Developer Discussion on Telegram](https://t.me/RadixDevelopers)
+
+Subscribe to the [RadGuild YouTube Channel](https://www.youtube.com/channel/UCLpdtHzNXHARnVlL5HHYlZw) and follow @rad\_guild on Twitter.
 
 #### Join a Project
 
 See the Radix Community Projects List on discord.
 
-Contact the [Radix Programmer's Guild](https://www.radguild.org).
+Learn about the [Radix Programmer's Guild](https://www.radguild.org).
 
-#### Follow and Support the Authors
+#### About the Authors
 
-Rock Howard leads the Radix Programmer's Guild and helps shepherd the free [Rust & Scrypto Forum](https://discord.gg/4Kqrgpg88X) on discord. On the forum he conducts periodic live interactive sessions covering Scrypto programming for Radix and related topics. He is working on two book projects, creates YouTube videos and writes two popular blogs. He lives in Austin, Texas with his wife Beverly and two orange tabby cats. He is @rockhoward on Twitter.
+Rock Howard leads the Radix Programmer's Guild and is involved in a wide variety of Radix ecosystem projects. He lives in Austin, Texas with his wife Beverly and two orange tabby cats. He is @rockhoward on Twitter.
 
 Clement Bisaillon is a Core Member of the Radix Programmer's Guild who loves Radix and Scrypto.
 
-This tutorial is free and we intend to keep it up to date. Please support the authors via XRD donations.
+#### We Appreciate Your Support
+
+This tutorial is free and we intend to keep up-to-date over time.
+
+Please use our Tutorial Tip Jar to support the authors via your kind donation.
 
 Tutorial Tip Jar: rdx1qspvz2523hcdfrkkz6kkdd7nej6pgud48qf449wjd4l0dgrzv6tjstcpr9dup
