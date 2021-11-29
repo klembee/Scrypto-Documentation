@@ -30,7 +30,7 @@ So in Scrypto components are the closest thing to what we think of when we think
 
 #### Versus Smart Contracts
 
-So can we say that Radix has smart contracts? In terms of capabilities, definitely yes. However the package/blueprint/component model is much more configurable. Therefore the alignment between components can be far tighter and safer. Ultimately a lot more functionality can be delivered with a  lot less code than with traditional smart contracts.
+So can we say that Radix has smart contracts? In terms of capabilities, definitely yes. However the package/blueprint/component model is much more configurable. Therefore the alignment between components can be far tighter and safer. Ultimately a lot more functionality can be delivered with a lot less code than with traditional smart contracts.
 
 ### Behind the Scenes: The Radix Engine, Radix API and Cerebus
 
@@ -58,4 +58,6 @@ In addition, there is Account but it is not used often in blueprints. An Account
 
 ### In Summary
 
-Taken as a whole the Radix stack, from the low level protocol to the highest level abstractions, is a lot to digest. No one should expect to master it all by themselves. It is good that you don't have to since already in these early days of Scrypto development, a healthy international community has formed ... (FIXME - complete this section)
+Taken as a whole the Radix stack, from the low level protocol to the highest level abstractions, is a lot to digest. No one should expect to master it all in a hurry all. The information on this page is just a brief introduction. Still we hope it helps orient you to the programming concepts that we are about to present to you.
+
+Now let's get started with Scrypto!
