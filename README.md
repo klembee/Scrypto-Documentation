@@ -6,7 +6,7 @@ Everything about this brief tutorial is subject to change as the Scrypto languag
 
 ### Getting Started
 
-* [Installation](broken-reference/)
+* [Installation](getting-started/installation.md)
 * [Scrypto Concepts](getting-started/scrypto-concepts.md)
 * [Hello World !](getting-started/hello-world.md)
 * [Deploying HelloWorld](getting-started/deploying-helloworld.md)
@@ -48,9 +48,8 @@ Learn about the [Radix Programmer's Guild](https://www.radguild.org).
 
 #### About the Authors
 
-- Clement Bisaillon is a Core Member of the Radix Programmer's Guild who loves Radix and Scrypto. He is active on the different Scrypto channels to answer your questions.
-
-- Rock Howard leads the Radix Programmer's Guild and is involved in a wide variety of Radix ecosystem projects. He lives in Austin, Texas with his wife Beverly and two orange tabby cats. He is @rockhoward on Twitter.
+* Clement Bisaillon is a Core Member of the Radix Programmer's Guild who loves Radix and Scrypto. He is active on the different Scrypto channels to answer your questions.
+* Rock Howard leads the Radix Programmer's Guild and is involved in a wide variety of Radix ecosystem projects. He lives in Austin, Texas with his wife Beverly and two orange tabby cats. He is @rockhoward on Twitter.
 
 #### We Appreciate Your Support
 
