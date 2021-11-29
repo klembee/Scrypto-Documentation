@@ -30,13 +30,13 @@ So in Scrypto components are the closest thing to what we think of when we think
 
 #### Versus Smart Contracts
 
-So we can say that Radix has smart contracts ? As we have seen above, the situation is quite different since the package/blueprint/component model can be far more configurable and the alignment between components can be far tighter and safer than smart contracts can ever hope to deliver.
+So can we say that Radix has smart contracts? In terms of capabilities, definitely yes. However the package/blueprint/component model is much more configurable. Therefore the alignment between components can be far tighter and safer. Ultimately a lot more functionality can be delivered with a  lot less code than with traditional smart contracts.
 
 ### Behind the Scenes: The Radix Engine, Radix API and Cerebus
 
 Part of what makes Radix safer than other protocols is the design and implementation of the Radix Engine which helps drive the ledger. The core capabilities of all tokens, badges, NFTs and other resources on the Radix ledger are defined by the Radix Engine making their operations fast and predictable. As you will see, the decision to treat all assets and resources on the ledger similarly does not preclude third party Scrypto programmers from adding a lot of additional value to tokens and other resources by adding additional logic.
 
-Another aspect of Radix that is crucial for DeFi is scalability. The Cerebus Consensus mechanism is the technology that allows Radix to take advantage of practically infinite sharding without giving up atomic composability. What this means for the Scrypto programmer is that they can create and deploy components that can leverage other deployed components in a variety of ways even if the requirement is to perform these operations atomically within a single transaction. You will only get a small taste of that aspect of Scrypto in this tutorial, but for advanced projects the ability to potentially leverage the entire ecosystem in this manner should create an unparalleled multiplier effect for everyone who participates.&#x20;
+Another aspect of Radix that is crucial for DeFi is scalability. The Cerebus Consensus mechanism is the technology that allows Radix to take advantage of practically infinite sharding without giving up atomic composability. What this means for the Scrypto programmer is that they can create and deploy components that can leverage other deployed components in a variety of ways even if the requirement is to perform these operations atomically within a single transaction. You will only get a small taste of that aspect of Scrypto in this tutorial, but for advanced projects the ability to potentially leverage the entire ecosystem in this manner should create an unparalleled multiplier effect for everyone who participates.
 
 ### Asset Oriented Programming
 
