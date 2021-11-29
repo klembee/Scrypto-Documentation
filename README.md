@@ -2,7 +2,7 @@
 
 ### About this Tutorial
 
-Everything about this brief tutorial is subject to change as the Scrypto is evolving quickly at the time of this writing. We purposely only cover the basics so that we can get this material in the hands of interested programmers as quickly as possible.
+Everything about this brief tutorial is subject to change as the Scrypto language is evolving quickly at the time of this writing. We purposely only cover the basics so that we can get this material in the hands of interested programmers as quickly as possible.
 
 ### Getting Started
 
@@ -36,6 +36,8 @@ Join the [RadixDLT discord](https://discord.gg/WkB2USt) and follow the scrypto c
 
 Join the [Rust & Scrypto Forum](https://discord.gg/4Kqrgpg88X) on discord which is operated by the [Radix Programmer's Guild](https://www.radguild.org).
 
+Join the [Radix Developer telegram](https://t.me/RadixDevelopers)
+
 #### Join a Project
 
 See the Radix Community Projects List on discord.
@@ -46,7 +48,7 @@ Contact the [Radix Programmer's Guild](https://www.radguild.org).
 
 Rock Howard leads the Radix Programmer's Guild and helps shepherd the free [Rust & Scrypto Forum](https://discord.gg/4Kqrgpg88X) on discord. On the forum he conducts periodic live interactive sessions covering Scrypto programming for Radix and related topics. He is working on two book projects, creates YouTube videos and writes two popular blogs. He lives in Austin, Texas with his wife Beverly and two orange tabby cats. He is @rockhoward on Twitter.
 
-Clements Bisaillon is a Core Member of the Radix Programmer's Guild who loves Radix and Scrypto.
+Clement Bisaillon is a Core Member of the Radix Programmer's Guild who loves Radix and Scrypto.
 
 This tutorial is free and we intend to keep it up to date. Please support the authors via XRD donations.
 
