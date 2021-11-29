@@ -48,7 +48,7 @@ Learn about the [Radix Programmer's Guild](https://www.radguild.org).
 
 #### About the Authors
 
-- Clement Bisaillon is a Core Member of the Radix Programmer's Guild who loves Radix and Scrypto. He is active on the different Scrypto channels to answers your questions.
+- Clement Bisaillon is a Core Member of the Radix Programmer's Guild who loves Radix and Scrypto. He is active on the different Scrypto channels to answer your questions.
 
 - Rock Howard leads the Radix Programmer's Guild and is involved in a wide variety of Radix ecosystem projects. He lives in Austin, Texas with his wife Beverly and two orange tabby cats. He is @rockhoward on Twitter.
 
