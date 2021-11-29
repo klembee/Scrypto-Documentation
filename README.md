@@ -15,7 +15,6 @@ Everything about this brief tutorial is subject to change as the Scrypto is evol
 ### Writing Code
 
 * [Scrypto Types](writing-code/scrypto-types.md)
-* [Creating Tokens](writing-code/creating-tokens.md)
 * [A Gumball Machine](writing-code/building-a-gumball-machine.md)
 * [Building a Candy Store](writing-code/building-a-candy-store.md)
 * [Secure the Store with Badges](writing-code/security-through-badges.md)

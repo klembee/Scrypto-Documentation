@@ -15,7 +15,7 @@
 * [A Gumball Machine](writing-code/building-a-gumball-machine.md)
 * [Building a Candy Store](writing-code/building-a-candy-store.md)
 * [Security Through Badges](writing-code/security-through-badges.md)
-* [Creating Tokens](writing-code/creating-tokens.md)
+* [More About Token Creation](writing-code/creating-tokens.md)
 
 ## Appendix
 
