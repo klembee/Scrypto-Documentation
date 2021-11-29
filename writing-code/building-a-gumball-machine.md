@@ -2,14 +2,6 @@
 
 We will be building a Candy Store shortly but we will get there by starting out with a traditional example in the world of Radix: The Gumball Machine. Create a new directory in location that you find convenient. Create a new package called candy-store and replace the src/lib.rs file with the gumball machine file located here: [https://github.com/radixdlt/radixdlt-scrypto/blob/main/examples/core/gumball-machine/src/lib.rs](https://github.com/radixdlt/radixdlt-scrypto/blob/main/examples/core/gumball-machine/src/lib.rs)
 
-```
-cd <some_folder>
-scrypto new-package candy-store
-cd candy-store
-rm src/lib.rs
-cp <radix-scrypto-folder>/examples/core/gumball-machine/src/lib.rs src/lib.rs
-```
-
 Bring up the `lib.rs` file in your editor of choice and let's take a look.
 
 ```rust
