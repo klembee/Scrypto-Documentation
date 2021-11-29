@@ -6,7 +6,7 @@ Everything about this brief tutorial is subject to change as the Scrypto is evol
 
 ### Getting Started
 
-* [Installation](broken-reference)
+* [Installation](broken-reference/)
 * [Scrypto Concepts](getting-started/scrypto-concepts.md)
 * [Hello World !](getting-started/hello-world.md)
 * [Deploying HelloWorld](getting-started/deploying-helloworld.md)
@@ -17,8 +17,9 @@ Everything about this brief tutorial is subject to change as the Scrypto is evol
 * [Scrypto Types](writing-code/scrypto-types.md)
 * [Creating Tokens](writing-code/creating-tokens.md)
 * [A Gumball Machine](writing-code/building-a-gumball-machine.md)
-* Building a Candy Store
+* [Building a Candy Store](writing-code/building-a-candy-store.md)
 * [Secure the Store with Badges](writing-code/security-through-badges.md)
+* More About Token Creation
 
 ### Appendix
 
