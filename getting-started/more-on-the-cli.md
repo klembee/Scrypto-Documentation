@@ -2,11 +2,11 @@
 
 ### Accounts
 
-You can create a new account with `resim new-account`. If it is the first account you create, resim will automatically set it as the default. You can later change the default account by running: `resim set-default-account [address] [public_key]`. This last command takes the address and public key of the account you want to switch to. The default account is the one you call the components from.
+As you saw on the last page, you can create a new account with `resim new-account`. If it is the first account you create, resim will automatically set it as the default. You can later change the default account by running: `resim set-default-account [address] [public_key]`. This last command takes the address and public key of the account you want to switch to. The default account is the one you call the components from.
 
 ### Fixed supply tokens
 
-Let's create a new token from the CLI ! To create a Scrypto token with a fixed supply of 1000, you can run the following command:
+Let's create a new token from the CLI ! To create a "Scrypto" token with a fixed supply of 1000, you can run the following command:
 
 ```
 resim new-token-fixed --name Scrypto --symbol SCO 1000
@@ -21,7 +21,7 @@ Resources:
 └─ { amount: 1000, resource_def: 036732a7f237e668965b058e2011d372ce03938bd6e6fa1d0fac87, name: "Scrypto", symbol: "SCO"}
 ```
 
-You can attach more metadata to a token like an icon, a description and the url of a website. Type `resim new-token-fixed --help` for the full list of parameters.
+You can attach more metadata to a token like an icon url, a description and the url of a website. Type `resim new-token-fixed --help` for the full list of parameters.
 
 ### Badges
 
@@ -63,12 +63,8 @@ To list all packages, components and resource definitions: `resim show-ledger`
 
 ### Shortcuts
 
-You can combine the build and deploy process into one step as follows:
+There is a shortcut you can use when redeploying your blueprint if you only changed its methods and functions, not its struct data.
 
-`resim publish .`
+`resim publish . --address [already_published_package_address]`
 
-If you just changed some code and want to republish using the same package address:
-
-`resim publish . --address $package`
-
-where `$package` is the address that was generated the last time that you published or deployed. Note that if you changed your blueprint struct since the last time that you published this package, then this shortcut will fail.
+This will build and deploy your changes while storing the blueprint at the same address. This way, you can continue to use the old package and component address. Note that if you changed your blueprint's struct since the last time you published this package, then this shortcut will fail.
