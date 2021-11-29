@@ -50,12 +50,16 @@ The early release of Scrypto implements tokens and badges. NFTs should also be s
 
 A Resource Holder is a container for resources. The Bucket is the workhorse holder. You pass resources around in buckets and manipulate their contents by moving them between buckets and vaults. However buckets are temporary. They must be emptied and/or burned by the end of a given public function or method.
 
-If you need to hold resources more permanently within a component, you must use a Vault. For that reason you will see Vaults in blueprint structs, but never Buckets.
+If you need to hold resources more permanently within a component, you must use a Vault. For that reason you will see Vaults in blueprint structs, but never Buckets. As we shall see it is possible to do sophisticated things with Vaults such as add or drop them dynamically as needed. Just keep in mind that it will become prohibitively expensive if your component is designed in such a way as to require a huge number of Vaults.&#x20;
 
-FIXME: the following paragraph needs an overhaul per our discussion.
+It will pay off well to study all of the available functions and methods for Buckets and Vaults.&#x20;
 
-In addition, there is Account but it is not used often in blueprints. An Account is part of a wallet or other resource collector that is not controlled by a component. Some of the details about interacting with and defining Accounts are not yet settled and so their importance for day to day Scrypto development is not well understood yet. For now just be aware that they exist.
+Account is a also resource holder that primarily serves as a stand-in for third party wallets and such. For now people are using them to solve various issues around the simulator, but over time that approach may or may not be allowed. Communicating with Accounts via Transactions will be the eventual way to interact with them, but the Transaction APIs isn't supported in the simulator yet and so sometimes using Account is the way to go for now.
+
+You should consider the Account blueprint, despite its' built-in character, to be a work in progress that is likely to change. In time it may be more like a Trait than a blueprint. So yes you can use it but any code that does so will likely need to be revisited in the future.
 
 ### In Summary
 
-Taken as a whole the Radix stack, from the low level protocol to the highest level abstractions, is a lot to digest. No one should expect to master it all by themselves. It is good that you don't have to since already in these early days of Scrypto development, a healthy international community has formed ... (FIXME - complete this section)
+Taken as a whole the Radix stack, from the low level protocol to the highest level abstractions, is a lot to digest. No one should expect to master it all in a hurry all. The information on this page is just a brief introduction. Still we hope it helps orient you to the programming concepts that we are about to present to you.
+
+Now onto the code!
