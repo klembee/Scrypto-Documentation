@@ -8,7 +8,7 @@ In Scrypto, vaults are used to hold resources. Vaults are initiated with a resou
 
 ### Buckets
 
-Buckets are a way to move resources throughout a transaction. At the end of a transactions, all resources inside buckets must be moved into a vault or burned. This is to make sure no tokens ever gets lost in the cryptosphere.
+Buckets are a way to move resources throughout a transaction. At the end of a transactions, all buckets must be moved into a vault or burned. This is to make sure no tokens ever get lost between an account and a component.
 
 You can take resources from a vault and put them in a bucket like this:
 
@@ -18,7 +18,7 @@ You can take resources from a vault and put them in a bucket like this:
 
 ### BucketRef
 
-BucketRefs are used when you write a method that could accept a bucket but you don't need to take ownership over that bucket. For example if you are only looking at the quantity or resource definition of tokens inside the bucket you can define the method argument as BucketRef instead of Bucket. This makes sure that you will not be able to store the tokens in your vault or send them to another account.
+BucketRefs are used when you write a method that could accept a bucket but you don't need to take ownership over that bucket. For example if you only need to get the quantity or resource definition of tokens inside the bucket you can define the method argument as BucketRef instead of Bucket. This makes sure that you will not be able to store the tokens in your vault or send them to another account.
 
 Example of a method accepting a bucket\_ref:
 
@@ -53,7 +53,7 @@ pub fn send_gift(&self, address: Address) {
 
 ### Components
 
-Just like an Account, you instantiate a component struct from the address of the component. You can then call methods on the component:
+Just like with an Account, you instantiate a component struct from the address of the component. You can then call methods on the component:
 
 ```rust
 pub fn call_animal(&self, address: Address) {
@@ -63,10 +63,6 @@ pub fn call_animal(&self, address: Address) {
 ```
 
 The type annotation we add on the method "::<()>" specifies the return type of the component's method. In this case, we expect it to return an empty tuple.
-
-\[Example with multiple return types]
-
-\[Example on how to include code]
 
 #### Import component with an ABI
 
@@ -138,5 +134,4 @@ blueprint! {
         }
     }
 }
-
 ```
