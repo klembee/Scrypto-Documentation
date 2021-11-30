@@ -54,7 +54,7 @@ If you need to hold resources more permanently within a component, you must use 
 
 It will pay off well to study all of the available functions and methods for Buckets and Vaults.
 
-An Account us a resource holder that models a wallet within the simulator. Some of the details about interacting with and defining Accounts are not yet settled and so their eventual importance for Scrypto development is not well understood yet. We recommend avoiding them if at all possible since they are certainly going to change a lot going forward.
+An Account is a resource holder that models a wallet within the simulator. Some of the details about interacting with and defining Accounts are not yet settled and so their eventual importance for Scrypto development is not well understood yet. We recommend avoiding them if at all possible since they are certainly going to change a lot going forward.
 
 ### In Summary
 
