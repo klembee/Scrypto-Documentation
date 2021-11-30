@@ -89,11 +89,11 @@ resim reset
 resim new-account # Remember the account's address
 resim publish . # Remember the package's address
 
-call-function [package_address] GumballMachine new 0.5 # Remember the component's address
-call-method [component_address] get_price # Should return Some(0.5)
+resim call-function [package_address] GumballMachine new 0.5 # Remember the component's address
+resim call-method [component_address] get_price # Should return Some(0.5)
 
 # Send 3 XRD to the buy_gumbal method
-call-method [component_address] buy_gumball 3,030000000000000000000000000000000000000000000000000004
+resim call-method [component_address] buy_gumball 3,030000000000000000000000000000000000000000000000000004
 resim show [component_address]
 resim show [account_address]
 # Check that everything adds up.

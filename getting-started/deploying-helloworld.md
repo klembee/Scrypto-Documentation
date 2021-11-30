@@ -28,10 +28,10 @@ We first need to build and deploy the blueprint:
 
 ```
 # Inside the helloworld directory
-resim deploy .
+resim publish .
 ```
 
-The deploy command will build the code and deploy it to the ledger. It returns the blueprint's address. Save it somewhere, you will need it in the next step.
+The publish command will build the code and deploy it to the ledger. It returns the blueprint's address. Save it somewhere, you will need it in the next step.
 
 Now that the blueprint is on the ledger, we can call its functions. In the HelloWorld blueprint, we specified a function acting as a constructor named `new`. You can call it like this:
 

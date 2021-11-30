@@ -87,7 +87,7 @@ blueprint! {
                 token_vault: Vault::with_bucket(tokens)
             }
             .instantiate();
-            
+
 
             (component, badge)
         }
@@ -103,10 +103,10 @@ Because we saved the minter badge in one of the component's vault, we are able t
 pub fn burn_badge(&mut self, badge_to_burn: Bucket) {
     // Take the minter badge out of the vault
     let badge_bucket = self.minter_badge.take(1);
-    
+
     // Burn the provided badge
     badge_to_burn.burn(badge_bucket.borrow());
-    
+
     // Put the badge back into its vault
     self.minter_badge.put(badge_bucket);
 }
@@ -114,13 +114,13 @@ pub fn burn_badge(&mut self, badge_to_burn: Bucket) {
 pub fn mint_tokens(&mut self) -> Bucket {
     // Take the badge out of the vault
     let badge_bucket = self.minter_badge.take(1);
-    
+
     // Let's mint 100 RCTM
     let bucket = self.token_vault.resource_def().mint(100, badge_bucket.borrow());
-    
+
     // Put the badge back into its vault
     self.minter_badge.put(badge_bucket);
-    
+
     // Return the minted tokens
     bucket
 }
