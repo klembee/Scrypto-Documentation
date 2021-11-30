@@ -2,11 +2,11 @@
 
 In this section we will improve the `GumballMachine` by building a `CandyStore`. Start by changing the `struct` and `impl` names to `CandyStore`.
 
-Next we are going to change the struct. First, instead of one Vault, we want a collection of Vaults, one for each token type. Since token names and symbols can actually clash, let's go the safe route and map between the token's address and the corresponding vault as shown by `candy_vaults`. Similarly the candy prices, which can be different for each candy vaullt, are kept in a map between the token address and the price.
+Next we are going to change the struct. First, instead of one Vault, we want a collection of Vaults, one for each token type. Since token names and symbols can actually clash, let's go the safe route and map between the token's address and the corresponding vault as shown by `candy_vaults`. Similarly the candy prices, which can be different for each candy vault, are kept in a map between the token address and the price.
 
 ```rust
  struct CandyStore {
-    // token address mapped to valut holding that token
+    // token address mapped to vault holding that token
     candy_vaults: HashMap<Address, Vault>,
 
     collected_xrd: Vault,
@@ -41,7 +41,7 @@ pub fn stock_candy(&mut self, candy: Bucket, new_price: Decimal) {
     // We can write assertions. If it fails, the whole transaction is safely rolled back.
     // Here, we make sure that the provided bucket does not contain XRD
     // and that the price is greater than zero.
-    assert!( candy_addr != self.collected_xrd.resource_address(), "cannot stock XRD as candy");
+    assert!(candy_addr != self.collected_xrd.resource_address(), "cannot stock XRD as candy");
     assert!(new_price > 0.into(), "new price must be a positive value");
 
     // Try to find the vault with candy_addr as key.

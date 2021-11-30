@@ -9,8 +9,8 @@ One obvious way to set this up is to have the creator of the component also be c
 First let's create the badge by adding this to the constructor:
 
 ```rust
-let owners_badge = ResourceBuilder::new()
-        .metadata("name", "Owner's Badge")
+let badge_bucket = ResourceBuilder::new()
+        .metadata("name", "Store Owner's Badge")
         .new_badge_fixed(1);
 ```
 
@@ -27,7 +27,7 @@ Self {
     candy_vaults: HashMap::new(),
     collected_xrd: Vault::new(RADIX_TOKEN),
     prices: HashMap::new(),
-    owners_badge: owners_badge.resource_def();
+    owners_badge: badge_bucket.resource_def();
 }
 .instantiate()
 ```
@@ -51,7 +51,7 @@ impl CandyStore {
     pub fn new() -> (Bucket, Component) {
         // Create the badge
         let badge_bucket = ResourceBuilder::new()
-            .metadata("name", "Stpre Owner's Badge")
+            .metadata("name", "Store Owner's Badge")
             .new_badge_fixed(1);
 
         let component = Self {
