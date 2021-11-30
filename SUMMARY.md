@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-* [Introduction](README.md)
+* [First Steps to Defi: A Scrypto Tutorial](README.md)
 * [Installation](getting-started/installation.md)
 * [Scrypto Concepts](getting-started/scrypto-concepts.md)
 * [Hello World !](getting-started/hello-world.md)
