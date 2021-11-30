@@ -1,8 +1,8 @@
-# Introduction
+# First Steps to DeFi:                     A Scrypto Tutorial
 
 ### About this Tutorial
 
-Everything about this brief tutorial is subject to change as the Scrypto language is evolving quickly at the time of this writing. We purposely only cover the basics so that we can get this material in the hands of interested programmers as quickly as possible.
+Everything here is subject to change as the Scrypto language is evolving quickly at the time of this writing. We purposely only cover the basics so that we can get this material in the hands of interested programmers as quickly as possible.
 
 ### Getting Started
 
