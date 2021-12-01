@@ -87,7 +87,7 @@ pub fn menu(&self) -> Vec<Bucket> {
 }
 ```
 
-Does this make sense? If not then you might want to look into Vec (short for Vector) which is Rust's version of a dynamic array. Also note that the iter() method allows us to loop through the elements of our candy_vaults HashMap.
+Does this make sense? If not then you might want to look into Vec (short for Vector) which is Rust's version of a dynamic array. Also note that the iter() method allows us to loop through the elements of our candy\_vaults HashMap.
 
 Did you notice that `_addr` has a leading underline character? This is used to let the compiler know that you are aware that this value is not actually used elsewhere in the method. Without the underline you will get a warning from the compiler.
 
@@ -123,6 +123,6 @@ pub fn buy_candy(&mut self, candy_addr: Address, payment: Bucket) -> (Bucket, Bu
 }
 ```
 
-Other than the fact that we are grabbing the vault and the price from the respective HashMaps, this method is conceptually unchanged form the `GumballMachine` version.
+Other than the fact that we are grabbing the vault and the price from the respective HashMaps, this method is conceptually unchanged from the `GumballMachine` version.
 
 So there you have it. We took a simple toy example and made the first steps towards turning it into something that might work in the real world. Still there is a major shortcoming. We cannot yet grab the proceeds from selling the candies. Before adding that we first have to learn how to secure our components to make methods only callable by specific people. We address this topic in the next chapter.
