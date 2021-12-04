@@ -61,7 +61,7 @@ blueprint! {
 }
 ```
 
-Everything inside this file defines your package. Typically you will find a single `blueprint!` section in the package but it is possible to include more blueprints and/or more files in the `lib` directory which can also contain blueprints to be included in your package.
+Everything inside this `lib.rs` file defines your package. Typically you will find a single `blueprint!` section in this file.  (It is possible to include other blueprints defined in other files within this `src` directory using the `mod` declaration but the details are beyond the scope of this tutorial.)
 
 The `blueprint!` macro defines a code template that can be published on the ledger. It has two sections: one that defines the data that generated components will have access to and one that defines the functions and methods.
 
