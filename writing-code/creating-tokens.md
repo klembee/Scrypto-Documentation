@@ -1,10 +1,10 @@
-# Creating Tokens
+# Creating fungible Tokens
 
 Just like with resim, you can create tokens and badges inside your components. You already learned how to create fixed supply tokens if you have done the [HelloWorld](../getting-started/hello-world.md) example. Let's learn how to create badges and mutable supply tokens !
 
 ### Fixed supply tokens and badges
 
-To create tokens and badges, you will use the `ResourceBuilder` utility. It allows you to specify metadata on the tokens and specify the supply. When creating tokens and badges of fixed supply, a bucket is returned containing the created resources.
+To create tokens and badges, you will use the `ResourceBuilder` utility. It allows you to specify metadata, specify the supply and define who can mint, burn and update its metadata. When creating tokens and badges of fixed supply, a bucket is returned containing the created resources.
 
 Here is an example of a component creating an access badge and a token. The tokens are stored in a vault of the component and the badge is returned to the caller.
 
@@ -20,18 +20,18 @@ blueprint! {
         pub fn new() -> (Component, Bucket) {
 
             // Create a badge with fixed supply of 1
-            let badge = ResourceBuilder::new()
+            let badge = ResourceBuilder::new_fungible(DIVISIBILITY_NONE)
                 .metadata("name", "Acces Badge")
                 .metadata("symbol", "TB")
                 .metadata("icon_url", "https://badge_website.com/icon.ico")
                 .metadata("url", "https://badge_website.com")
-                .new_badge_fixed(1);
+                .initial_supply_fungible(1);
 
             // Create tokens with fixed supply of 1 000 000 000
-            let tokens = ResourceBuilder::new()
+            let tokens = ResourceBuilder::new_fungible(DIVISIBILITY_MAXIMUM)
                 .metadata("name", "Really Cool Token")
                 .metadata("symbol", "RCT")
-                .new_token_fixed(1_000_000_000);
+                .initial_supply_fungible(1_000_000_000);
 
             let component = Self {
                 token_vault: Vault::with_bucket(tokens)
@@ -61,24 +61,28 @@ blueprint! {
 
     impl TokenCreator {
         pub fn new() -> (Component, Bucket) {
-            let minter_badge = ResourceBuilder::new()
-                .new_badge_fixed(1);
+            let minter_badge = ResourceBuilder::new_fungible(DIVISIBILITY_NONE)
+                .initial_supply_fungible(1);
 
             // Create a mutable supply token and specify
             // the resource definition of the badge allowed to mint and burn.
             // Notice that new_token_mutable does not return a bucket but only a resource_definition.
-            let token_resource_def = ResourceBuilder::new()
+            let token_resource_def = ResourceBuilder::new_fungible(DIVISIBILITY_MAXIMUM)
                 .metadata("name", "Really Cool Token - but mutable")
                 .metadata("symbol", "RCTM")
-                .new_token_mutable(minter_badge.resource_def());
+                .flags(MINTABLE | BURNABLE)
+                .badge(minter_badge.resource_def(), MAY_MINT | MAY_BURN)
+                .no_initial_supply();
 
             // Now we can mint tokens
             let tokens = token_resource_def.mint(1000, minter_badge.borrow());
 
-            // It's the same when creating mutable badges
-            let badge_resource_def = ResourceBuilder::new()
+            // It's the same when creating mutable badges (divisibility of 0)
+            let badge_resource_def = ResourceBuilder::new_fungible(DIVISIBILITY_ZERO)
                 .metadata("name", "Mutable Badge")
-                .new_badge_mutable(minter_badge.resource_def());
+                .flags(MINTABLE | BURNABLE)
+                .badge(minter_badge.resource_def(), MAY_MINT | MAY_BURN)
+                .no_initial_supply();
 
             let badge = badge_resource_def.mint(1, minter_badge.borrow());
 
@@ -131,7 +135,7 @@ Because badges are used a lot, it can become annoying to always take the badge f
 ```rust
 pub fn burn_badge(&mut self, badge_to_burn: Bucket) {
     self.minter_badge.authorize(|badge| {
-        badge_to_burn.burn(badge);
+        badge_to_burn.burn_with_auth(badge);
     });
 }
 
