@@ -1,6 +1,6 @@
 # Security Through Badges
 
-For this example we will add the simplest possible security model using a store owner's badge. With this badge the candy store owner will be able to stock and restock the candy store and also claim the `collected_xrd`.
+For this example we will add the simplest possible security model using a store owner's badge. A badge is just a token with a divisibility of 0, meaning you cannot send fractions of it. With this badge the candy store owner will be able to stock and restock the candy store and also claim the `collected_xrd`.
 
 One obvious way to set this up is to have the creator of the component also be considered to be the owner of the store and therefore give them a store owner's badge.
 
@@ -9,9 +9,9 @@ One obvious way to set this up is to have the creator of the component also be c
 First let's create the badge by adding this to the constructor:
 
 ```rust
-let badge_bucket = ResourceBuilder::new()
+let badge_bucket = ResourceBuilder::new_fungible(DIVISIBILITY_NONE)
         .metadata("name", "Store Owner's Badge")
-        .new_badge_fixed(1);
+        .initial_supply_fungible(1);
 ```
 
 Also in the Candy Store's struct let's save the badge's resource definition ...
@@ -50,9 +50,9 @@ impl CandyStore {
 
     pub fn new() -> (Bucket, Component) {
         // Create the badge
-        let badge_bucket = ResourceBuilder::new()
+        let badge_bucket = ResourceBuilder::new_fungible(DIVISIBILITY_NONE)
             .metadata("name", "Store Owner's Badge")
-            .new_badge_fixed(1);
+            .initial_supply_fungible(1);
 
         let component = Self {
             candy_vaults: HashMap::new(),
