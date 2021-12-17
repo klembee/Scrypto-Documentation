@@ -99,7 +99,7 @@ blueprint! {
 }
 ```
 
-Notice that we do `minter_badge.present()` when calling `mint`. That's because the mint method expect a `BucketRef` and not a `Bucket`. Calling present`()` transforms the bucket into a BucketRef.
+Notice that we do `minter_badge.present()` when calling `mint`. That's because the mint method expect a `BucketRef` and not a `Bucket`. Calling `present()` on a Bucket transforms it into a BucketRef.
 
 Because we saved the minter badge in one of the component's vault, we are able to mint and burn the resources in another method:
 
