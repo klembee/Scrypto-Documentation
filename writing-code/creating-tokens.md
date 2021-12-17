@@ -1,4 +1,4 @@
-# Creating fungible Tokens
+# More About Token Creation
 
 Just like with resim, you can create tokens and badges inside your components. You already learned how to create fixed supply tokens if you have done the [HelloWorld](../getting-started/hello-world.md) example. Let's learn how to create badges and mutable supply tokens !
 
@@ -75,7 +75,7 @@ blueprint! {
                 .no_initial_supply();
 
             // Now we can mint tokens
-            let tokens = token_resource_def.mint(1000, minter_badge.borrow());
+            let tokens = token_resource_def.mint(1000, minter_badge.present());
 
             // It's the same when creating mutable badges (divisibility of 0)
             let badge_resource_def = ResourceBuilder::new_fungible(DIVISIBILITY_ZERO)
@@ -84,7 +84,7 @@ blueprint! {
                 .badge(minter_badge.resource_def(), MAY_MINT | MAY_BURN)
                 .no_initial_supply();
 
-            let badge = badge_resource_def.mint(1, minter_badge.borrow());
+            let badge = badge_resource_def.mint(1, minter_badge.present());
 
             let component = Self {
                 minter_badge: Vault::with_bucket(minter_badge),
@@ -99,7 +99,7 @@ blueprint! {
 }
 ```
 
-Notice that we do `minter_badge.borrow()` when calling `mint`. That's because the mint method expect a `BucketRef` and not a `Bucket`. `borrow()` transforms the bucket into a BucketRef.
+Notice that we do `minter_badge.present()` when calling `mint`. That's because the mint method expect a `BucketRef` and not a `Bucket`. Calling present`()` transforms the bucket into a BucketRef.
 
 Because we saved the minter badge in one of the component's vault, we are able to mint and burn the resources in another method:
 
@@ -109,7 +109,7 @@ pub fn burn_badge(&mut self, badge_to_burn: Bucket) {
     let badge_bucket = self.minter_badge.take(1);
 
     // Burn the provided badge
-    badge_to_burn.burn(badge_bucket.borrow());
+    badge_to_burn.burn(badge_bucket.present());
 
     // Put the badge back into its vault
     self.minter_badge.put(badge_bucket);
@@ -120,7 +120,7 @@ pub fn mint_tokens(&mut self) -> Bucket {
     let badge_bucket = self.minter_badge.take(1);
 
     // Let's mint 100 RCTM
-    let bucket = self.token_vault.resource_def().mint(100, badge_bucket.borrow());
+    let bucket = self.token_vault.resource_def().mint(100, badge_bucket.present());
 
     // Put the badge back into its vault
     self.minter_badge.put(badge_bucket);
