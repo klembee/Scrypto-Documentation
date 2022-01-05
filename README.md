@@ -36,7 +36,7 @@ Join the [RadixDLT discord](https://discord.gg/WkB2USt) and follow the scrypto c
 
 Join the [Rust & Scrypto Forum](https://discord.gg/4Kqrgpg88X) on discord.
 
-Join the [Radix Developer Discussion on Telegram](https://t.me/RadixDevelopers)
+Join the [Radix Developer Discussion on Telegram](https://t.me/RadixDevelopers).
 
 Subscribe to the [RadGuild YouTube Channel](https://www.youtube.com/channel/UCLpdtHzNXHARnVlL5HHYlZw) and follow @rad\_guild on Twitter.
 
