@@ -32,6 +32,8 @@ Everything here is subject to change as the Scrypto language is evolving quickly
 
 Visit the [sign up page](https://developers.radixdlt.com/sign-up) for the RadixDLT Developer's mailing list.
 
+Visit RadixTalk.com [Scrypto category](https://radixtalk.com/c/developers/scrypto/25) and engage with other developers.
+
 Join the [RadixDLT discord](https://discord.gg/WkB2USt) and follow the scrypto channel.
 
 Join the [Rust & Scrypto Forum](https://discord.gg/4Kqrgpg88X) on discord.
